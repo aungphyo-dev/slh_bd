@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#scroll::-webkit-scrollbar
+{
+    @apply hidden lg:block bg-[#F5F5F5] w-[5px]
+}
+#scroll::-webkit-scrollbar-thumb
+{
+    border-radius: 4px;
+    background-color: #000000;
+}
+#scroll::-webkit-scrollbar-track
+{
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
