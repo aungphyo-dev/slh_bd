@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import Data from '../DB/db.json'
 import Image from "next/image";
 import Link from "next/link";
-import {useSearchParams} from "next/navigation";
+import Footer from "@/components/Footer";
 
 const HomeIndex = () => {
     const [question, setQuestion] = useState(null)
@@ -17,10 +17,10 @@ const HomeIndex = () => {
         }
     }, [query,question]);
     return (
-        <div className='bg-[#eff8f9] mx-auto p-5 flex  max-w-screen-md  flex-col justify-center items-center h-screen'>
-            <div className="relative w-[200px] h-[200px] object-contain mb-3">
+        <div className='bg-[#eff8f9] mx-auto pt-5 pb-0 flex  max-w-screen-md  flex-col justify-center items-center h-screen'>
+            <div className="relative w-[205px] h-[200px] x mb-3 rounded overflow-hidden">
                 <Image  placeholder="blur"
-                        blurDataURL={'/mintheinkha_logo.png'} priority sizes={"700"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
+                        blurDataURL={'/mintheinkha_logo.png'} className={"object-cover"} priority sizes={"100"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
             </div>
             <div className='w-full px-5'>
                 <div className="relative w-full">
@@ -36,7 +36,7 @@ const HomeIndex = () => {
                            placeholder="Search Baydin" required value={query} onChange={e=>setQuery(e.target.value)}/>
                 </div>
             </div>
-            <ul className='h-full overflow-y-auto mt-5  border-collapse px-0 md:px-5 ' id={"scroll"}>
+            <ul className='h-full overflow-y-auto mt-5 mb-1  border-collapse px-0 md:px-5 ' id={"scroll"}>
                 {
                     question?.map(q => <Link href={`/detail/${q.questionNo}`}
                                              className='grid grid-cols-12 border-2 mb-2 px-3 py-2 rounded'
@@ -50,6 +50,7 @@ const HomeIndex = () => {
                     </Link>)
                 }
             </ul>
+            <Footer/>
         </div>
     )
 };

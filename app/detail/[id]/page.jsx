@@ -1,12 +1,14 @@
 "use client"
 import React, {useEffect, useState} from 'react';
-import {useParams} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import Data from "../../../DB/db.json"
 import Modal from "@/components/Modal";
 
 const Detail = () => {
     const {id} = useParams()
+    const router = useRouter()
     const question = Data.questions.filter(d => d.questionNo == id);
     const filterData = Data.answers.filter(d => d.questionNo == id);
     const [modalData, setModalData] = useState("")
@@ -40,15 +42,18 @@ const Detail = () => {
             setModalData(data[0].answerResult)
         }
     }, [e,filterData]);
+    useEffect(() => {
+        router.prefetch("/")
+    }, [router]);
     return (
         <>
             <Modal modal={modal} setModal={setModal} modalData={modalData}/>
             <div
                 className='bg-[#eff8f9] mx-auto p-5 flex  max-w-screen-md  flex-col justify-center items-center h-auto md:h-screen'>
-                <div className="relative w-[200px] h-[200px] object-contain mb-3">
+                <Link href={"/"} className="relative w-[205px] h-[200px]  mb-3 rounded overflow-hidden">
                     <Image priority placeholder="blur"
-                           blurDataURL={'/mintheinkha_logo.png'} sizes={"700"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
-                </div>
+                           blurDataURL={'/mintheinkha_logo.png'} className='object-cover' sizes={"700"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
+                </Link>
                 <div className='h-full'>
                     <h1 className='text-[20px] font-semibold text-center'>
                         {
