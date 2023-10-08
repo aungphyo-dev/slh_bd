@@ -15,11 +15,12 @@ const HomeIndex = () => {
                 const filterData = question.filter(data => data.questionName.includes(query))
                 setQuestion(filterData)
         }
-    }, [query]);
+    }, [query,question]);
     return (
         <div className='bg-[#eff8f9] mx-auto p-5 flex  max-w-screen-md  flex-col justify-center items-center h-screen'>
             <div className="relative w-[200px] h-[200px] object-contain mb-3">
-                <Image priority sizes={"700"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
+                <Image  placeholder="blur"
+                        blurDataURL={'/mintheinkha_logo.png'} priority sizes={"700"} fill src={"/mintheinkha_logo.png"} alt={"DD"}/>
             </div>
             <div className='w-full px-5'>
                 <div className="relative w-full">
