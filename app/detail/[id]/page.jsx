@@ -63,7 +63,9 @@ const Detail = () => {
                     <div className='grid grid-cols-7 md:grid-cols-9 mt-4 max-w-screen-sm mx-auto gap-1'>
                         {Data.numberList.map((d, i) => <button key={i} onClick={()=> {
                             setF(d)
-                            setModal(true)
+                            if (!!e){
+                                setModal(true)
+                            }
                         }}
                                                                className='bg-yellow-800 text-center p-2 rounded-xl text-white text-xs'>{d}</button>)}
                     </div>
