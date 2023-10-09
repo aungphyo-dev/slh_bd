@@ -34,6 +34,8 @@ const Detail = () => {
             setE(8)
         }else if (f === "၉"){
             setE(9)
+        } else {
+            setE(10)
         }
     }, [f]);
     useEffect(() => {
