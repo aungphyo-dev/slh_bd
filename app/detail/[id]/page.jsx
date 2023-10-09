@@ -60,7 +60,7 @@ const Detail = () => {
                             question[0].questionName
                         }
                     </h1>
-                    <div className='grid grid-cols-7 md:grid-cols-9 mt-4 max-w-screen-sm mx-auto gap-1'>
+                    <div className='grid grid-cols-9 mt-4 max-w-screen-sm mx-auto gap-1'>
                         {Data.numberList.map((d, i) => <button key={i} onClick={()=> {
                             setF(d)
                             if (!!e){
